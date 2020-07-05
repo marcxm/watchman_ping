@@ -1,0 +1,29 @@
+# About Me
+set from = "mail@fqdn.com"
+set realname = "myhost"
+
+# My credentials
+set smtp_url = "smtp://mail@fqdn.com@mail.fqdn.com:587/"
+set smtp_pass = "mysecretpassword"
+set imap_user = "mail@fqdn.com"
+set imap_pass = "mysecretpassword"
+
+# My mailboxes
+set folder = "imaps://imap.fqdn.com:993"
+set spoolfile = "+INBOX"
+
+
+# Where to put the stuff
+set header_cache = "~/.mutt/cache/headers"
+set message_cachedir = "~/.mutt/cache/bodies"
+set certificate_file = "~/.mutt/certificates"
+
+# Etc
+set mail_check = 30
+set move = no
+set imap_keepalive = 900
+set sort = threads
+set editor = "vim"
+
+# GnuPG bootstrap
+# source ~/.mutt/gpg.rc
