@@ -1,3 +1,6 @@
+# Watchman - port ping module
+# by marc_smith@gmx.com | github.com/marcxm
+
 #!/bin/bash
 
 usage() { echo "Usage: $0 [-i 192.168.0.20] [-n myhost] [-s interval] [-m mail@fqdn.com]" 1>&2; exit 1; }
