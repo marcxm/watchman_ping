@@ -34,23 +34,23 @@ fi
 
 while [ true ]; do
   sleep $s
-  nc -w 4 -vz $i 22 > /dev/null
+  fping -r 1 $i > /dev/null
   if [ $? -eq 1 ]; then
-    printf "`date`: $n IP: $i is DOWN.\n" >> ./watchman_ping_history.log                                                                           
-      if test -f ./$n"_down"; then
+    printf "`date`: $n with IP: $i is DOWN.\n" >> /root/watchman_ping_history.log                                                                           
+      if test -f /root/$n"_down"; then
         echo "not sending another mail."
       else
         echo `date` > mail
-        echo "$i is DOWN!" | mutt -s "$i is DOWN!" $m
-        touch ./$n"_down"
+        echo "$i - $n is DOWN!" | mutt -s "date - $i - $n is DOWN!" $m
+        touch /root/$n"_down"
       fi                                                                                                          
     else
-      if test -f ./$n"_down"; then
-        rm ./$n"_down"                                                                                                                             
-        printf "`date`: $n with IP: $i is UP AGAIN.\n" >> ./watchman_ping_history.log
-        echo "$i is DOWN!" | mutt -s "$i is UP AGAIN!" $m
+      if test -f /root/$n"_down"; then
+        rm /root/$n"_down"                                                                                                                             
+        printf "`date`: $n with IP: $i is UP AGAIN.\n" >> /root/watchman_ping_history.log
+        echo "$i - $n is UP AGAIN!" | mutt -s "date - $i - $n is UP AGAIN!" $m
       else                                                                                                                              
-      printf "`date`: $n with IP: $i is UP.\n" >> ./watchman_ping_history.log                                                                             
+      printf "`date`: $n with IP: $i is UP.\n" >> /root/watchman_ping_history.log                                                                             
       fi
   fi
 done
